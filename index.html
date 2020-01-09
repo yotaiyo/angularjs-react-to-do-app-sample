@@ -11,6 +11,9 @@
                 $scope.addTodo = function(todo) {
                     $scope.todoList.push(todo)
                 }
+                $scope.deleteTodo = function(index) {
+                    $scope.todoList.splice(index, 1)
+                }
             });
         </script>
 
@@ -20,6 +23,7 @@
             <ul>
                 <li ng-repeat='todo in todoList'>
                     {{todo}}
+                    <button ng-click='deleteTodo($index)'>delete</button>
                 </li>
             </ul>
         </div>
