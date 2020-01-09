@@ -2,6 +2,11 @@
 <html>
     <head>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js'></script>
+        <style type="text/css">
+            .line_through {
+                text-decoration: line-through;
+            }
+        </style>
     </head>
     <body>
         <script>
@@ -9,11 +14,15 @@
             app.controller('todoAppCtrl', function($scope) {
                 $scope.todoList = []
                 $scope.addTodo = function(name) {
-                    $scope.todoList.push({ name })
+                    $scope.todoList.push({ name, done: false })
                     $scope.textInput = []
                 }
                 $scope.deleteTodo = function(index) {
                     $scope.todoList.splice(index, 1)
+                }
+                $scope.completeTodo = function(index) {
+                    const todo = $scope.todoList[index]
+                    $scope.todoList[index] = { ...todo, done: !todo.done }
                 }
             });
         </script>
@@ -23,8 +32,11 @@
             <button ng-click='addTodo(textInput)'>add</button>
             <ul>
                 <li ng-repeat='todo in todoList'>
-                    {{todo.name}}
+                    <span ng-class='{line_through : todo.done}'>
+                        {{todo.name}}
+                    </span>
                     <button ng-click='deleteTodo($index)'>delete</button>
+                    <button ng-click='completeTodo($index)'>done</button>
                 </li>
             </ul>
         </div>
