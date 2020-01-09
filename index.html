@@ -10,6 +10,7 @@
                 $scope.todoList = []
                 $scope.addTodo = function(todo) {
                     $scope.todoList.push(todo)
+                    $scope.textInput = ''
                 }
                 $scope.deleteTodo = function(index) {
                     $scope.todoList.splice(index, 1)
