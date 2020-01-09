@@ -4,6 +4,19 @@
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js'></script>
     </head>
     <body>
-        <div>this is sample application using AngularJS</div>
+        <script>
+            const app = angular.module('toDoApp', []);
+            app.controller('toDoAppCtrl', function ($scope) {
+                $scope.toDoList = ['todo1', 'todo2', 'todo3']
+            });
+        </script>
+
+        <div ng-app='toDoApp' ng-controller='toDoAppCtrl'>
+            <ul>
+                <li ng-repeat='toDo in toDoList'>
+                    {{toDo}}
+                </li>
+            </ul>
+        </div>
     </body>
 </html>
