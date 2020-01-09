@@ -8,9 +8,9 @@
             const app = angular.module('todoApp', []);
             app.controller('todoAppCtrl', function($scope) {
                 $scope.todoList = []
-                $scope.addTodo = function(todo) {
-                    $scope.todoList.push(todo)
-                    $scope.textInput = ''
+                $scope.addTodo = function(name) {
+                    $scope.todoList.push({ name })
+                    $scope.textInput = []
                 }
                 $scope.deleteTodo = function(index) {
                     $scope.todoList.splice(index, 1)
@@ -23,7 +23,7 @@
             <button ng-click='addTodo(textInput)'>add</button>
             <ul>
                 <li ng-repeat='todo in todoList'>
-                    {{todo}}
+                    {{todo.name}}
                     <button ng-click='deleteTodo($index)'>delete</button>
                 </li>
             </ul>
