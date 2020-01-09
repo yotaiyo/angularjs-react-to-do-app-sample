@@ -5,16 +5,21 @@
     </head>
     <body>
         <script>
-            const app = angular.module('toDoApp', []);
-            app.controller('toDoAppCtrl', function ($scope) {
-                $scope.toDoList = ['todo1', 'todo2', 'todo3']
+            const app = angular.module('todoApp', []);
+            app.controller('todoAppCtrl', function($scope) {
+                $scope.todoList = []
+                $scope.addTodo = function(todo) {
+                    $scope.todoList.push(todo)
+                }
             });
         </script>
 
-        <div ng-app='toDoApp' ng-controller='toDoAppCtrl'>
+        <div ng-app='todoApp' ng-controller='todoAppCtrl'>
+            <input type='text' ng-model='textInput'>
+            <button ng-click='addTodo(textInput)'>add</button>
             <ul>
-                <li ng-repeat='toDo in toDoList'>
-                    {{toDo}}
+                <li ng-repeat='todo in todoList'>
+                    {{todo}}
                 </li>
             </ul>
         </div>
