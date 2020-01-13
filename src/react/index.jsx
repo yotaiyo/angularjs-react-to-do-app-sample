@@ -1,11 +1,18 @@
 class Todo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { todoList: [{ name: 'post1' }, { name: 'post2' }], textInput: '' };
+        this.state = { todoList: [], textInput: '' };
     }
 
     onChange(textInput) {
         this.setState({ textInput })
+    }
+
+    addTodo(textInput) {
+        let todoList = this.state.todoList
+        todoList.push({ name: textInput, done: false })
+        this.setState({ todoList})
+        this.setState({ textInput: '' })
     }
 
     render() {
@@ -13,7 +20,7 @@ class Todo extends React.Component {
         return (
             <div>
                 <input type='text' value={this.state.textInput} onChange={e => this.onChange(e.target.value)} />
-                <button>add</button>
+                <button onClick={() => this.addTodo(textInput)}>add</button>
                 <ul>
                     {todoList.map((todo, index) => (
                         <li key={index}>
