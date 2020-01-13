@@ -1,4 +1,4 @@
-const app = angular.module('todoApp', []);
+const app = angular.module('todoApp', ['react']);
 
 app.controller('todoAppCtrl', function($scope) {
     $scope.todoList = []
