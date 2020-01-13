@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src='node_modules/react/umd/react.development.js'></script>
+        <script src='node_modules/react-dom/umd/react-dom.development.js'></script>
+        <script src='node_modules/ngreact/ngReact.min.js'></script>
         <style type="text/css">
             .line_through {
                 text-decoration: line-through;
@@ -9,36 +12,12 @@
         </style>
     </head>
     <body>
-        <script>
-            const app = angular.module('todoApp', []);
-            app.controller('todoAppCtrl', function($scope) {
-                $scope.todoList = []
-                $scope.addTodo = function(name) {
-                    $scope.todoList.push({ name, done: false })
-                    $scope.textInput = []
-                }
-                $scope.deleteTodo = function(index) {
-                    $scope.todoList.splice(index, 1)
-                }
-                $scope.completeTodo = function(index) {
-                    const todo = $scope.todoList[index]
-                    $scope.todoList[index] = { ...todo, done: !todo.done }
-                }
-            });
-        </script>
+        <script src='src/angularjs/index.js'></script>
+        <script src='dist/react/index.js'></script>
 
-        <div ng-app='todoApp' ng-controller='todoAppCtrl'>
-            <input type='text' ng-model='textInput'>
-            <button ng-click='addTodo(textInput)'>add</button>
-            <ul>
-                <li ng-repeat='todo in todoList'>
-                    <span ng-class='{line_through : todo.done}'>
-                        {{todo.name}}
-                    </span>
-                    <button ng-click='deleteTodo($index)'>delete</button>
-                    <button ng-click='completeTodo($index)'>done</button>
-                </li>
-            </ul>
+
+        <div ng-app='todoApp'>
+            <react-component name='Todo' />
         </div>
     </body>
 </html>
