@@ -17,18 +17,7 @@
 
 
         <div ng-app='todoApp' ng-controller='todoAppCtrl'>
-            <input type='text' ng-model='textInput'>
-            <button ng-click='addTodo(textInput)'>add</button>
-            <ul>
-                <li ng-repeat='todo in todoList'>
-                    <span ng-class='{line_through : todo.done}'>
-                        {{todo.name}}
-                    </span>
-                    <button ng-click='deleteTodo($index)'>delete</button>
-                    <button ng-click='completeTodo($index)'>done</button>
-                </li>
-            </ul>
-            <react-component name='Test' />
+            <react-component name='Todo' />
         </div>
     </body>
 </html>
