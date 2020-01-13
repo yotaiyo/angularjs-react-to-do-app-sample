@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/yotaiyo/angularjs-react-to-do-app-sample/issues"
   },
-  "homepage": "https://github.com/yotaiyo/angularjs-react-to-do-app-sample#readme"
+  "homepage": "https://github.com/yotaiyo/angularjs-react-to-do-app-sample#readme",
+  "dependencies": {
+    "ngreact": "^0.5.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
 }
