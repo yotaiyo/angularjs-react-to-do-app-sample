@@ -15,6 +15,12 @@ class Todo extends React.Component {
         this.setState({ textInput: '' })
     }
 
+    deleteTodo(index) {
+        let todoList = this.state.todoList
+        todoList.splice(index, 1)
+        this.setState({ todoList })
+    }
+
     toggleTodo(index) {
         let todoList = this.state.todoList
         const todo = todoList[index]
@@ -32,7 +38,7 @@ class Todo extends React.Component {
                     {todoList.map((todo, index) => (
                         <li key={index}>
                             {todo.done ? <del>{todo.name}</del> : <span>{todo.name}</span>}
-                            <button>delete</button>
+                            <button onClick={() => this.deleteTodo(index)}>delete</button>
                             <button onClick={() => this.toggleTodo(index)}>done</button>
                         </li>
                     ))}
