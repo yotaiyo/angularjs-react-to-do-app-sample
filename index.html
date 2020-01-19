@@ -16,8 +16,10 @@
         <script src='dist/react/index.js'></script>
 
 
-        <div ng-app='todoApp'>
-            <react-component name='Todo' />
-        </div>
+        <div ng-app='todoApp' ng-controller='intervalCtrl'>
+            <div>
+                <react-component name='Todo'>
+            </div>
+            <div>{{message}}</div>
     </body>
 </html>
