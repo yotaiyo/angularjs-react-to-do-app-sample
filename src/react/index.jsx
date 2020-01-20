@@ -40,7 +40,9 @@ class Todo extends React.Component {
         this.intervalFn()
         return (
             <div>
-                <div>{'currentTime:' + currentTime}</div>
+                <h2>現在時刻</h2>
+                <div>{currentTime}</div>
+                <h2>タスク</h2>
                 <input type='text' value={this.state.textInput} onChange={e => this.onChange(e.target.value)} />
                 <button onClick={() => this.addTodo(textInput)}>add</button>
                 <ul>
@@ -52,6 +54,7 @@ class Todo extends React.Component {
                         </li>
                     ))}
                 </ul>
+                <h2>トグル</h2>
                 <button onClick={this.props.showString}>show</button>
                 <button onClick={this.props.hideString}>hide</button>
             </div>

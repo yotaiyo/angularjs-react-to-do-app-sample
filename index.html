@@ -5,22 +5,29 @@
         <script src='node_modules/react/umd/react.development.js'></script>
         <script src='node_modules/react-dom/umd/react-dom.development.js'></script>
         <script src='node_modules/ngreact/ngReact.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
         <style type="text/css">
             .line_through {
                 text-decoration: line-through;
             }
         </style>
     </head>
-    <body>
+    <body ng-app='todoApp'>
         <script src='src/angularjs/index.js'></script>
         <script src='dist/react/index.js'></script>
 
 
-        <div ng-app='todoApp' ng-controller='intervalCtrl'>
+        <div ng-controller='intervalCtrl'>
             <div>
                 <react-component name='Todo' props='props'>
             </div>
             <div>{{string}}</div>
+        </div>
+
+        <div ng-controller="modalDemoCtrl as pc" class="modal-demo">
+            <h2>・モーダル</h2>
+            <button type="button" class="btn btn-default" ng-click="pc.open()">Open me!</button>
         </div>
     </body>
 </html>
