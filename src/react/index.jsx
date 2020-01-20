@@ -52,6 +52,7 @@ class Todo extends React.Component {
                         </li>
                     ))}
                 </ul>
+                <button onClick={this.props.showString}>show</button>
             </div>
         )
     }
