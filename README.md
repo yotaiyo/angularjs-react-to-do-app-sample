@@ -4,5 +4,5 @@
 ```
 npm i
 npm run build
-open index.html
+http-server -c-1 -f /index.html
 ```
