@@ -5,5 +5,11 @@ app.controller('intervalCtrl', ['$scope', '$interval', function($scope, $interva
     $scope.showString = function () {
         $scope.string = 'show';
     }
-    $scope.props = { $interval, showString: $scope.showString }
+    $scope.showString = function () {
+        $scope.string = 'show';
+    }
+    $scope.hideString = function () {
+        $scope.string = '';
+    }
+    $scope.props = { $interval, showString: $scope.showString, hideString: $scope.hideString }
 }]);
