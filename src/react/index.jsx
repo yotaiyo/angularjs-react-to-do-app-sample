@@ -1,7 +1,7 @@
 class Todo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { todoList: [], textInput: '' };
+        this.state = { todoList: [], textInput: '', currentTime: new Date().toLocaleTimeString() };
     }
 
     onChange(textInput) {
@@ -28,10 +28,19 @@ class Todo extends React.Component {
         this.setState({ todoList })
     }
 
+    intervalFn() {
+        const setState = this.setState.bind(this)
+        this.props.$interval(function() {
+            setState({ currentTime: new Date().toLocaleTimeString() })
+        }, 1000)
+    }
+
     render() {
-        const { todoList, textInput } = this.state
+        const { todoList, textInput, currentTime } = this.state
+        this.intervalFn()
         return (
             <div>
+                <div>{'currentTime:' + currentTime}</div>
                 <input type='text' value={this.state.textInput} onChange={e => this.onChange(e.target.value)} />
                 <button onClick={() => this.addTodo(textInput)}>add</button>
                 <ul>
