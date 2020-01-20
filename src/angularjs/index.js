@@ -14,7 +14,7 @@ app.controller('intervalCtrl', ['$scope', '$interval', function($scope, $interva
     $scope.props = { $interval, showString: $scope.showString, hideString: $scope.hideString }
 }]);
 
-app.controller('modalDemoCtrl', ['$uibModal', function($uibModal) {
+app.controller('modalDemoCtrl', ['$scope', '$uibModal', function($scope, $uibModal) {
     var pc = this;
 
     pc.open = function () {
@@ -26,6 +26,8 @@ app.controller('modalDemoCtrl', ['$uibModal', function($uibModal) {
           controllerAs: 'pc',
         });
     };
+
+    $scope.props = { open: pc.open }
 }]);
 
 app.controller('modalCtrl', ['$uibModalInstance', function($uibModalInstance) {

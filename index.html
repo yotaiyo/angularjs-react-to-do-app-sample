@@ -16,6 +16,7 @@
     <body ng-app='todoApp'>
         <script src='src/angularjs/index.js'></script>
         <script src='dist/react/index.js'></script>
+        <script src='dist/react/modal.js'></script>
 
 
         <div ng-controller='intervalCtrl'>
@@ -27,7 +28,7 @@
 
         <div ng-controller="modalDemoCtrl as pc">
             <h2>モーダル</h2>
-            <button type="button" ng-click="pc.open()">Open me!</button>
+            <react-component name='Modal' props='props'>
         </div>
     </body>
 </html>
